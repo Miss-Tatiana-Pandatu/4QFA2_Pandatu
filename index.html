@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="num1">Please enter a number between 2 and 10:</label>
+    <input type="text" id="n1" name="num1"><br><br>
+
+    <label for="num2">Please enter a number between 2 and 10:</label>
+    <input type="text" id="n2" name="num2"><br><br>
+
+    <input type="submit" value="Submit" onclick="table()"><br><br>
+    <div id="table"></div>
+
+    <script>
+
+        function table(){
+            var n1V = parseInt(document.getElementById("n1").value);
+            var n2V = parseInt(document.getElementById("n2").value);
+
+            if(n1V < 2 || n1V > 10 || n2V < 2 || n2V > 10 || isNaN(n1V) || isNaN(n2V)){
+                alert("Please enter two numbers between 2 and 10");
+            }
+            else{
+                var table = "";
+                for(var i=n1V; i<=n2V; i++){
+                    table += " ";
+
+                    for (var j=1; j<=n2V; j++){
+                        table += i + " x " + j + " = " + (i*j) + "<br>";
+                    }
+
+                    table += "";
+                }
+
+                document.getElementById("table").innerHTML = table;
+            }
+        }
+
+    </script>
+</body>
+</html>
